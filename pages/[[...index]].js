@@ -141,37 +141,41 @@ const IndexPage = ({ context }) => {
   const shoDisplay = isShow ? 0 : 1;
 
   const modals = async () => {
-    Swal.fire({
-      title: 'Perhatian!',
-      text: 'Anda yakin ingin mengirim ucapan ini? Ucapan tidak akan bisa dihapus!',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Ya, kirim!',
-      cancelButtonText: 'Tidak!',
-      showLoaderOnConfirm: true,
-      preConfirm: async () => {
-        const { data, error } = await supabase.from('messages').insert([
-          {
-            slug: 'wisnu-intan-22',
-            from: from,
-            text: text,
-            attend: bool,
-          },
-        ]);
+    if (!from || !ext) {
+      Swal.fire('Perhatian!', 'Tolong isi nama dan ucapan dengan lengkap!', 'warning');
+    } else {
+      Swal.fire({
+        title: 'Perhatian!',
+        text: 'Anda yakin ingin mengirim ucapan ini? Ucapan tidak akan bisa dihapus!',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, kirim!',
+        cancelButtonText: 'Tidak!',
+        showLoaderOnConfirm: true,
+        preConfirm: async () => {
+          const { data, error } = await supabase.from('messages').insert([
+            {
+              slug: 'wisnu-intan-22',
+              from: from,
+              text: text,
+              attend: bool,
+            },
+          ]);
 
-        setFrom('');
-        setText('');
-        setBool(false);
+          setFrom('');
+          setText('');
+          setBool(false);
 
-        return data;
-      },
-    }).then((result) => {
-      if (result.isConfirmed) {
-        Swal.fire('Sukses!', 'Ucapan telah dikirim!', 'success');
-      }
-    });
+          return data;
+        },
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire('Sukses!', 'Ucapan telah dikirim!', 'success');
+        }
+      });
+    }
   };
 
   return (
@@ -325,7 +329,7 @@ const IndexPage = ({ context }) => {
               <div className="card-container">
                 <div className="card-ts date">
                   <div className="icon">
-                    <Image priority width={24} height={24} src="/calendar.svg" alt="Calendar" />
+                    <Image priority width={20} height={20} src="/calendar.svg" alt="Calendar" />
                   </div>
                   <div className="info">
                     <p>Senin,</p>
@@ -337,11 +341,11 @@ const IndexPage = ({ context }) => {
               <div className="card-container">
                 <div className="card-ts time">
                   <div className="icon">
-                    <Image priority width={32} height={32} src="/person.svg" alt="Person" />
+                    <Image priority width={28} height={28} src="/person.svg" alt="Person" />
                   </div>
                   <div className="info">
                     <p>
-                      {hour}.{minutes} WITA
+                      {hour}.{minutes} WIB
                     </p>
                     <b>
                       s/d {hourEnd}.{minutesEnd}
@@ -359,7 +363,7 @@ const IndexPage = ({ context }) => {
                 >
                   <div className="card-ts location">
                     <div className="icon">
-                      <Image priority width={24} height={24} src="/calendar.svg" alt="Calendar" />
+                      <Image priority width={20} height={20} src="/calendar.svg" alt="Calendar" />
                     </div>
                     <div className="info">
                       <b style={{ marginBottom: '6px' }}>Alamat Acara</b>
