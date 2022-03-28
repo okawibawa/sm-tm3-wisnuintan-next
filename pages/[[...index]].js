@@ -64,7 +64,11 @@ const IndexPage = ({ context }) => {
     const path = router.asPath.split('/');
 
     if (path.length > 0) {
-      setName(path[1]);
+      if (path[0] == '[...index]') {
+        setName('');
+      } else {
+        setName(path[1]);
+      }
     }
 
     if (path[2]) {
