@@ -181,6 +181,16 @@ const IndexPage = ({ context }) => {
     }
   };
 
+  const QRMOdal = (src) => {
+    Swal.fire({
+      text: 'Halo, terima kasih ya 💞',
+      imageUrl: src,
+      imageWidth: 160,
+    });
+  };
+
+  const copyText = () => navigator.clipboard.writeText('081382819007');
+
   return (
     <Layout>
       <Head>
@@ -546,6 +556,185 @@ const IndexPage = ({ context }) => {
           </div>
         </div>
         {/* Wishes End */}
+
+        {/* Gift */}
+        <div className="sm-card">
+          <h6 className="wishes__title">Hadiah</h6>
+
+          <p>
+            Tanpa mengurangi rasa hormat, untuk melengkapi kebahagiaan pengantin, Anda dapat memberikan tanda kasih
+            dengan transfer ke rekening ke alamat berikut:
+          </p>
+
+          <div>
+            <div
+              style={{
+                backgroundColor: 'white',
+                borderRadius: '1rem',
+                padding: '.625rem .825rem',
+                borderRadius: '1rem',
+                color: 'black',
+                marginTop: '1rem',
+              }}
+            >
+              <div style={{ display: 'flex', marginBottom: '2rem', justifyContent: 'flex-end' }}>
+                <img style={{ width: '50%', maxWidth: '120px' }} src="/bca-logo.png" alt="bca" />
+              </div>
+
+              <div style={{ textAlign: 'left' }}>
+                <div style={{ display: 'flex' }}>
+                  <p>6785013909</p> {'-'}
+                  <p onClick={() => navigator.clipboard.writeText('6785013909')} style={{ color: 'purple' }}>
+                    Copy
+                  </p>
+                </div>
+                <p style={{ margin: '.525rem 0' }}>Kadek Wisnu Bhuana</p>
+                <button
+                  style={{
+                    backgroundColor: '#333',
+                    border: 'none',
+                    color: 'white',
+                    width: '100%',
+                    padding: '.825rem 0',
+                    borderRadius: '1.25rem',
+                  }}
+                  onClick={() => QRMOdal('/bca.jpeg')}
+                >
+                  Buka QR Code
+                </button>
+              </div>
+            </div>
+
+            <div
+              style={{
+                backgroundColor: 'white',
+                borderRadius: '1rem',
+                padding: '.625rem .825rem',
+                borderRadius: '1rem',
+                color: 'black',
+                marginTop: '1rem',
+              }}
+            >
+              <div style={{ display: 'flex', marginBottom: '2rem', justifyContent: 'flex-end' }}>
+                <img style={{ width: '50%', maxWidth: '120px' }} src="/gopay-logo.png" alt="gopay" />
+              </div>
+
+              <div style={{ textAlign: 'left' }}>
+                <div style={{ display: 'flex' }}>
+                  <p>+6281382819007</p> {'-'}
+                  <p onClick={copyText} style={{ color: 'purple' }}>
+                    Copy
+                  </p>
+                </div>
+                <p style={{ margin: '.525rem 0' }}>Kadek Wisnu Bhuana</p>
+                <button
+                  style={{
+                    backgroundColor: '#333',
+                    border: 'none',
+                    color: 'white',
+                    width: '100%',
+                    padding: '.825rem 0',
+                    borderRadius: '1.25rem',
+                  }}
+                  onClick={() => QRMOdal('/gopay.jpeg')}
+                >
+                  Buka QR Code
+                </button>
+              </div>
+            </div>
+
+            <div
+              style={{
+                backgroundColor: 'white',
+                borderRadius: '1rem',
+                padding: '.625rem .825rem',
+                borderRadius: '1rem',
+                color: 'black',
+                marginTop: '1rem',
+              }}
+            >
+              <div style={{ display: 'flex', marginBottom: '2rem', justifyContent: 'flex-end' }}>
+                <img style={{ width: '50%', maxWidth: '120px' }} src="/ovo-logo.png" alt="ovo" />
+              </div>
+
+              <div style={{ textAlign: 'left' }}>
+                <div style={{ display: 'flex' }}>
+                  <p>+6281382819007</p> {'-'}
+                  <p onClick={copyText} style={{ color: 'purple' }}>
+                    Copy
+                  </p>
+                </div>
+                <p style={{ margin: '.525rem 0' }}>Kadek Wisnu Bhuana</p>
+                <button
+                  style={{
+                    backgroundColor: '#333',
+                    border: 'none',
+                    color: 'white',
+                    width: '100%',
+                    padding: '.825rem 0',
+                    borderRadius: '1.25rem',
+                  }}
+                  onClick={() => QRMOdal('/ovo.jpeg')}
+                >
+                  Buka QR Code
+                </button>
+              </div>
+            </div>
+
+            <div
+              style={{
+                backgroundColor: 'white',
+                borderRadius: '1rem',
+                padding: '.625rem .825rem',
+                borderRadius: '1rem',
+                color: 'black',
+                marginTop: '1rem',
+              }}
+            >
+              <div style={{ display: 'flex', marginBottom: '2rem', justifyContent: 'flex-end' }}>
+                <img style={{ width: '50%', maxWidth: '120px' }} src="/dana-logo.png" alt="dana" />
+              </div>
+
+              <div style={{ textAlign: 'left' }}>
+                <div style={{ display: 'flex' }}>
+                  <p>+6281382819007</p> {'-'}
+                  <p onClick={copyText} style={{ color: 'purple' }}>
+                    Copy
+                  </p>
+                </div>
+                <p style={{ margin: '.525rem 0' }}>Kadek Wisnu Bhuana</p>
+                <button
+                  style={{
+                    backgroundColor: '#333',
+                    border: 'none',
+                    color: 'white',
+                    width: '100%',
+                    padding: '.825rem 0',
+                    borderRadius: '1.25rem',
+                    marginBottom: '.425rem',
+                  }}
+                  onClick={() => QRMOdal('/dana.jpeg')}
+                >
+                  Buka QR Code
+                </button>
+                <button
+                  style={{
+                    backgroundColor: '#333',
+                    border: 'none',
+                    color: 'white',
+                    width: '100%',
+                    padding: '.825rem 0',
+                    borderRadius: '1.25rem',
+                  }}
+                  onClick={() => router.replace('https://link.dana.id/qr/6na67h7')}
+                >
+                  Buka Link Dana
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Gift Ends */}
 
         {/* Footer */}
         <div className="sm-card footer">
