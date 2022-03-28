@@ -37,8 +37,8 @@ const IndexPage = ({ context }) => {
   const [name, setName] = React.useState('');
   const [hour, setHour] = React.useState('11');
   const [minutes, setMinutes] = React.useState('00');
-  const [hourEnd, setHourEnd] = React.useState('12');
-  const [minutesEnd, setMinutesEnd] = React.useState('00');
+  const [hourEnd, setHourEnd] = React.useState('');
+  const [minutesEnd, setMinutesEnd] = React.useState('');
 
   const [secondOne, setSecondOne] = React.useState(0);
   const [minuteOne, setMinuteOne] = React.useState(0);
@@ -61,7 +61,23 @@ const IndexPage = ({ context }) => {
   sal();
 
   useEffect(() => {
-    // setName();
+    const path = router.asPath.split('/');
+
+    if (path.length > 0) {
+      setName(path[1]);
+    }
+
+    if (path[2]) {
+      const time = path[2].split('-');
+
+      setHour(time[0].slice(0, 2));
+      setMinuteOne(time[0].slice(2, 4));
+
+      if (time[1]) {
+        setHourEnd(time[1].slice(0, 2));
+        setMinutesEnd(time[1].slice(2, 4));
+      }
+    }
   }, []);
 
   useEffect(() => {
@@ -82,19 +98,6 @@ const IndexPage = ({ context }) => {
 
     fetchMessages();
   }, [newComment]);
-
-  const handleAdd = async () => {
-    const { data, error } = await supabase.from('messages').insert([
-      {
-        slug: 'wisnu-intan-22',
-        from: 'Adi Triginarsa sdfasdfasdf asdf asfd',
-        text: 'Komen baru ni bos',
-        attend: true,
-      },
-    ]);
-
-    console.log(error);
-  };
 
   // Count time 2
   let countDownDate2 = new Date(`April 18, 2022 ${hour}:${minutes}:00`).getTime();
@@ -131,12 +134,12 @@ const IndexPage = ({ context }) => {
     setIsVideoPlaying(false);
   };
 
-  const handlePlayVideo = () => {
-    if (isPlaying) {
-      setIsPlaying(false);
-      setIsVideoPlaying(true);
-    }
-  };
+  // const handlePlayVideo = () => {
+  //   if (isPlaying) {
+  //     setIsPlaying(false);
+  //     setIsVideoPlaying(true);
+  //   }
+  // };
 
   const shoDisplay = isShow ? 0 : 1;
 
@@ -180,26 +183,23 @@ const IndexPage = ({ context }) => {
 
   return (
     <Layout>
-      {/* <Helmet>
-
+      <Head>
         <title>Pernikahan Wisnu & Intan | Segera Menikah</title>
         <meta name="title" content="Pernikahan Wisnu & Intan | Segera Menikah" />
-        <meta name="description" content="Pernikahan Wisnu & Intan, 17 Desember 2021." />
-
+        <meta name="description" content="Pernikahan Wisnu & Intan, 18 April 2022." />
 
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://wisnu.intan.segeramenikah.com" />
         <meta property="og:title" content="Pernikahan Wisnu & Intan | Segera Menikah" />
-        <meta property="og:description" content="Pernikahan Wisnu & Intan, 17 Desember 2021." />
+        <meta property="og:description" content="Pernikahan Wisnu & Intan, 18 April 2022." />
         <meta property="og:image" content={imgOne} />
-
 
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://wisnu.intan.segeramenikah.com" />
         <meta property="twitter:title" content="Pernikahan Wisnu & Intan | Segera Menikah" />
-        <meta property="twitter:description" content="Pernikahan Wisnu & Intan, 17 Desember 2021." />
+        <meta property="twitter:description" content="Pernikahan Wisnu & Intan, 18 April 2022." />
         <meta property="twitter:image" content={imgOne} />
-      </Helmet> */}
+      </Head>
 
       <Modal
         isOpen={isShow}
@@ -347,9 +347,7 @@ const IndexPage = ({ context }) => {
                     <p>
                       {hour}.{minutes} WIB
                     </p>
-                    <b>
-                      s/d {hourEnd}.{minutesEnd}
-                    </b>
+                    <b>s/d {hourEnd && minutesEnd ? `${hourEnd}.${minutesEnd}` : 'Selesai'}</b>
                   </div>
                 </div>
               </div>
