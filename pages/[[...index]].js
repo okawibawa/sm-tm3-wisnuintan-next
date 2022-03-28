@@ -587,7 +587,7 @@ const IndexPage = ({ context }) => {
 
               <div style={{ textAlign: 'left' }}>
                 <div style={{ display: 'flex' }}>
-                  <p>6785013909</p> {'-'}
+                  <p style={{ color: 'black' }}>6785013909</p> {'-'}
                   <p onClick={() => navigator.clipboard.writeText('6785013909')} style={{ color: 'purple' }}>
                     Copy
                   </p>
@@ -625,7 +625,7 @@ const IndexPage = ({ context }) => {
 
               <div style={{ textAlign: 'left' }}>
                 <div style={{ display: 'flex' }}>
-                  <p>+6281382819007</p> {'-'}
+                  <p style={{ color: 'black' }}>+6281382819007</p> {'-'}
                   <p onClick={copyText} style={{ color: 'purple' }}>
                     Copy
                   </p>
@@ -663,7 +663,7 @@ const IndexPage = ({ context }) => {
 
               <div style={{ textAlign: 'left' }}>
                 <div style={{ display: 'flex' }}>
-                  <p>+6281382819007</p> {'-'}
+                  <p style={{ color: 'black' }}>+6281382819007</p> {'-'}
                   <p onClick={copyText} style={{ color: 'purple' }}>
                     Copy
                   </p>
@@ -701,7 +701,7 @@ const IndexPage = ({ context }) => {
 
               <div style={{ textAlign: 'left' }}>
                 <div style={{ display: 'flex' }}>
-                  <p>+6281382819007</p> {'-'}
+                  <p style={{ color: 'black' }}>+6281382819007</p> {'-'}
                   <p onClick={copyText} style={{ color: 'purple' }}>
                     Copy
                   </p>
