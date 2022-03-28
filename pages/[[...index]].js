@@ -56,7 +56,8 @@ const IndexPage = ({ context }) => {
   const [newComment, setNewComment] = React.useState([]);
   const [from, setFrom] = React.useState('');
   const [text, setText] = React.useState('');
-  const [bool, setBool] = React.useState(false);
+  const [bool1, setBool1] = React.useState(false);
+  const [bool2, setBool2] = React.useState(false);
 
   sal();
 
@@ -68,18 +69,6 @@ const IndexPage = ({ context }) => {
         setName('');
       } else {
         setName(path[1]);
-      }
-    }
-
-    if (path[2]) {
-      const time = path[2].split('-');
-
-      setHour(time[0].slice(0, 2));
-      setMinuteOne(time[0].slice(2, 4));
-
-      if (time[1]) {
-        setHourEnd(time[1].slice(0, 2));
-        setMinutesEnd(time[1].slice(2, 4));
       }
     }
   }, []);
@@ -148,7 +137,7 @@ const IndexPage = ({ context }) => {
   const shoDisplay = isShow ? 0 : 1;
 
   const modals = async () => {
-    if (!from || !ext) {
+    if (!from || !text) {
       Swal.fire('Perhatian!', 'Tolong isi nama dan ucapan dengan lengkap!', 'warning');
     } else {
       Swal.fire({
@@ -167,13 +156,15 @@ const IndexPage = ({ context }) => {
               slug: 'wisnu-intan-22',
               from: from,
               text: text,
-              attend: bool,
+              attend_1: bool1,
+              attend_2: bool2,
             },
           ]);
 
           setFrom('');
           setText('');
-          setBool(false);
+          setBool1(false);
+          setBool2(false);
 
           return data;
         },
@@ -357,11 +348,17 @@ const IndexPage = ({ context }) => {
                   <div className="icon">
                     <Image priority width={28} height={28} src="/person.svg" alt="Person" />
                   </div>
-                  <div className="info">
-                    <p>
-                      {hour}.{minutes} WIB
-                    </p>
-                    <b>s/d {hourEnd && minutesEnd ? `${hourEnd}.${minutesEnd}` : 'Selesai'}</b>
+                  <div style={{ display: 'flex', flexDirection: 'column' }}>
+                    <div className="info" style={{ marginBottom: '.225rem' }}>
+                      <b>Sesi 1</b>
+                      <p>08.00 WIB</p>
+                      <p>s/d 12.00</p>
+                    </div>
+                    <div className="info">
+                      <b>Sesi 2</b>
+                      <p>13.00 WIB</p>
+                      <p>s/d 16.00</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -494,7 +491,15 @@ const IndexPage = ({ context }) => {
                     <div className="wishes__sender">
                       <div style={{ display: 'flex', alignItems: 'center' }}>
                         <p className="wishes__name">{wish.from}</p>
-                        <p className="wishes__attend">{wish.attend === true ? 'Hadir' : 'Tidak hadir'}</p>
+                        <p className="wishes__attend">
+                          {wish.attend_1 === true && wish.attend_2 === true
+                            ? 'Hadir di sesi 1 & 2'
+                            : wish.attend_1 === true
+                            ? 'Hadir di sesi 1'
+                            : wish.attend_2 === true
+                            ? 'Hadir di sesi 2'
+                            : 'Tidak hadir'}
+                        </p>
                       </div>
                       <p className="wishes__date">
                         {new Date(wish.created_at).toLocaleString('default', { dateStyle: 'long' })}{' '}
@@ -542,14 +547,27 @@ const IndexPage = ({ context }) => {
 
               <div style={{ marginBottom: '1rem', textAlign: 'left', display: 'flex', alignItems: 'center' }}>
                 <input
-                  onChange={(e) => setBool(e.target.checked)}
-                  id="attendance"
+                  onChange={(e) => setBool1(e.target.checked)}
+                  id="attendance1"
                   style={{ width: '24px' }}
                   type="checkbox"
-                  value={bool}
+                  value={bool1}
                 />
-                <label htmlFor="attendance" style={{ marginLeft: '.5rem', fontSize: '1rem' }}>
-                  Akan hadir
+                <label htmlFor="attendance1" style={{ marginLeft: '.325rem', fontSize: '1rem' }}>
+                  Akan hadir di sesi 1
+                </label>
+              </div>
+
+              <div style={{ marginBottom: '1rem', textAlign: 'left', display: 'flex', alignItems: 'center' }}>
+                <input
+                  onChange={(e) => setBool2(e.target.checked)}
+                  id="attendance2"
+                  style={{ width: '24px' }}
+                  type="checkbox"
+                  value={bool2}
+                />
+                <label htmlFor="attendance2" style={{ marginLeft: '.325rem', fontSize: '1rem' }}>
+                  Akan hadir di sesi 2
                 </label>
               </div>
 

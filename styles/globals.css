@@ -612,7 +612,7 @@ section#third-section {
   align-items: center;
   justify-content: center;
   text-align: center;
-  min-height: 82px;
+  min-height: 145px;
 }
 
 @media (min-width: 375px) {
@@ -716,8 +716,8 @@ p.save-the-date {
   width: 100%;
 }
 
-.card-ts .infoSmDesc {
-  font-size: 10px;
+.card-ts .info {
+  font-size: 14px;
   display: inline-block;
 }
 
@@ -764,7 +764,7 @@ section#fourth-section::before {
   justify-content: space-between;
   height: 100%;
   margin: auto;
-  padding: 30px 40px 40px;
+  padding: 30px 20px 20px;
 }
 
 .th-title h1 {
