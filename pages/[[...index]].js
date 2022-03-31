@@ -68,13 +68,16 @@ const IndexPage = ({ context }) => {
       if (path[1] == '[...index]') {
         setName('');
       } else {
-        setName(path[1]);
+        const name = path[1].replace(/-/g, ' ');
+
+        setName(name);
       }
     }
   }, []);
 
   useEffect(() => {
     setIsLoading(true);
+
     const fetchMessages = async () => {
       const { data, error, status } = await supabase.from('messages').select('*').order('id', { ascending: false });
 
@@ -551,9 +554,9 @@ const IndexPage = ({ context }) => {
                   id="attendance1"
                   style={{ width: '24px' }}
                   type="checkbox"
-                  value={bool1}
+                  checked={bool1}
                 />
-                <label htmlFor="attendance1" style={{ marginLeft: '.325rem', fontSize: '1rem' }}>
+                <label htmlFor="attendance1" style={{ marginLeft: '.225rem', fontSize: '1rem' }}>
                   Akan hadir di sesi 1
                 </label>
               </div>
@@ -564,9 +567,9 @@ const IndexPage = ({ context }) => {
                   id="attendance2"
                   style={{ width: '24px' }}
                   type="checkbox"
-                  value={bool2}
+                  checked={bool2}
                 />
-                <label htmlFor="attendance2" style={{ marginLeft: '.325rem', fontSize: '1rem' }}>
+                <label htmlFor="attendance2" style={{ marginLeft: '.225rem', fontSize: '1rem' }}>
                   Akan hadir di sesi 2
                 </label>
               </div>
