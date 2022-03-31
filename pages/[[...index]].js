@@ -200,13 +200,13 @@ const IndexPage = ({ context }) => {
         <meta property="og:url" content="https://wisnu.intan.segeramenikah.com" />
         <meta property="og:title" content="Pernikahan Wisnu & Intan | Segera Menikah" />
         <meta property="og:description" content="Pernikahan Wisnu & Intan, 18 April 2022." />
-        <meta property="og:image" content="/1.jpg" />
+        <meta property="og:image" content="/5.jpg" />
 
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://wisnu.intan.segeramenikah.com" />
         <meta property="twitter:title" content="Pernikahan Wisnu & Intan | Segera Menikah" />
         <meta property="twitter:description" content="Pernikahan Wisnu & Intan, 18 April 2022." />
-        <meta property="twitter:image" content="/1.jpg" />
+        <meta property="twitter:image" content="/5.jpg" />
       </Head>
 
       <Modal
