@@ -308,9 +308,8 @@ const IndexPage = ({ context }) => {
               <div className="card" data-sal="slide-up" data-sal-duration="1250" data-sal-easing="ease">
                 <h1>Kadek Wisnu Bhuana</h1>
                 <p>
-                  Putra kedua dari pasangan<br></br> Ketut T. Prawira & Ni Putu Ariartini
+                  Putra kedua dari pasangan<br></br> Ketut T. Parwira & Ni Putu Ariartini
                 </p>
-                <p>Bintara Jaya Permai Blok C 121, RT 007 / RW 011, Bintara Jaya, Bekasi Barat 17136</p>
               </div>
 
               <div className="card" data-sal="slide-up" data-sal-duration="1250" data-sal-easing="ease">
@@ -318,7 +317,6 @@ const IndexPage = ({ context }) => {
                 <p>
                   Putri ketiga dari pasangan<br></br> I Gusti Ngurah Alit & I Gusti Ayu Ngurah
                 </p>
-                <p>Taman Kebalen Indah Blok J1 no. 49</p>
               </div>
             </div>
           </div>
