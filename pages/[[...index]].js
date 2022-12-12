@@ -96,7 +96,7 @@ const IndexPage = ({ context }) => {
   }, [newComment]);
 
   // Count time 2
-  let countDownDate2 = new Date(`April 18, 2022 ${hour}:${minutes}:00`).getTime();
+  let countDownDate2 = new Date(`December 21, 2022 ${hour}:${minutes}:00`).getTime();
 
   const updateCountDownDate2 = setInterval(function () {
     let newDate2 = new Date().getTime();
@@ -192,20 +192,20 @@ const IndexPage = ({ context }) => {
   return (
     <Layout>
       <Head>
-        <title>Pernikahan Wisnu & Intan | Segera Menikah</title>
-        <meta name="title" content="Pernikahan Wisnu & Intan | Segera Menikah" />
-        <meta name="description" content="Pernikahan Wisnu & Intan, 18 April 2022." />
+        <title>Pernikahan Surya & Dytha | Segera Menikah</title>
+        <meta name="title" content="Pernikahan Surya & Dytha | Segera Menikah" />
+        <meta name="description" content="Pernikahan Surya & Dytha, 21 Desember 2022." />
 
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://wisnu.intan.segeramenikah.com" />
-        <meta property="og:title" content="Pernikahan Wisnu & Intan | Segera Menikah" />
-        <meta property="og:description" content="Pernikahan Wisnu & Intan, 18 April 2022." />
+        <meta property="og:title" content="Pernikahan Surya & Dytha | Segera Menikah" />
+        <meta property="og:description" content="Pernikahan Surya & Dytha, 21 Desember 2022." />
         <meta property="og:image" content="/5.jpg" />
 
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://wisnu.intan.segeramenikah.com" />
-        <meta property="twitter:title" content="Pernikahan Wisnu & Intan | Segera Menikah" />
-        <meta property="twitter:description" content="Pernikahan Wisnu & Intan, 18 April 2022." />
+        <meta property="twitter:title" content="Pernikahan Surya & Dytha | Segera Menikah" />
+        <meta property="twitter:description" content="Pernikahan Surya & Dytha, 21 Desember 2022." />
         <meta property="twitter:image" content="/5.jpg" />
       </Head>
 
@@ -221,7 +221,7 @@ const IndexPage = ({ context }) => {
           <div className="modal-container gradient">
             <div className="modal-titles">
               <h1 className="modal-title shadow">Pernikahan</h1>
-              <h2 className="modal-names shadow">Wisnu & Intan</h2>
+              <h2 className="modal-names shadow">Surya & Dytha</h2>
             </div>
 
             <div className="modal-details">
@@ -230,8 +230,8 @@ const IndexPage = ({ context }) => {
                   <Image priority width={24} height={24} src="/calendar.svg" alt="Calendar" />
                 </div>
                 <div className="modal-info">
-                  <p>Senin,</p>
-                  <b>18/04/2022</b>
+                  <p>Rabu,</p>
+                  <b>21/12/2022</b>
                 </div>
               </div>
 
@@ -278,7 +278,7 @@ const IndexPage = ({ context }) => {
                 Pernikahan
               </h1>
               <h2 className="names shadow" data-sal="slide-up" data-sal-duration="1250" data-sal-easing="ease">
-                Wisnu & Intan
+                Surya & Dytha
               </h2>
             </div>
           </div>
@@ -306,17 +306,19 @@ const IndexPage = ({ context }) => {
 
             <div className="cards-container">
               <div className="card" data-sal="slide-up" data-sal-duration="1250" data-sal-easing="ease">
-                <h1>Kadek Wisnu Bhuana</h1>
+                <h1>Bripda Gusti Putu Surya Saputra</h1>
                 <p>
-                  Putra kedua dari pasangan<br></br> Ketut T. Parwira & Ni Putu Ariartini
+                  Putra pertama dari pasangan<br></br> AKP I Gusti Putu Suarka & Sayu Ketut Suryatini
                 </p>
+                <p style={{ fontSize: '10px' }}>Br. Pasar, Desa Yehembang, Mendoyo, Jembrana</p>
               </div>
 
               <div className="card" data-sal="slide-up" data-sal-duration="1250" data-sal-easing="ease">
-                <h1>I Gusti Ayu Intan Fridayanti</h1>
+                <h1>Bripda Desak Ayu Dytha Damayanthi</h1>
                 <p>
-                  Putri ketiga dari pasangan<br></br> I Gusti Ngurah Alit & I Gusti Ayu Ngurah
+                  Putri pertama dari pasangan<br></br> Iptu I Dewa Made Arnawa, S.H. & Ipda Ni Luh Gede Rastini, S.H.
                 </p>
+                <p style={{ fontSize: '10px' }}>Jln. Sekar Sari Gang 1 No.12A Denpasar</p>
               </div>
             </div>
           </div>
@@ -338,8 +340,8 @@ const IndexPage = ({ context }) => {
                     <Image priority width={20} height={20} src="/calendar.svg" alt="Calendar" />
                   </div>
                   <div className="info">
-                    <p>Senin,</p>
-                    <b className="info-date">18/04/2022</b>
+                    <p>Rabu,</p>
+                    <b className="info-date">21/12/2022</b>
                   </div>
                 </div>
               </div>
@@ -350,15 +352,9 @@ const IndexPage = ({ context }) => {
                     <Image priority width={28} height={28} src="/person.svg" alt="Person" />
                   </div>
                   <div style={{ display: 'flex', flexDirection: 'column' }}>
-                    <div className="info" style={{ marginBottom: '.225rem' }}>
-                      <b>Sesi 1</b>
-                      <p>08.00 WIB</p>
-                      <p>s/d 12.00</p>
-                    </div>
                     <div className="info">
-                      <b>Sesi 2</b>
-                      <p>13.00 WIB</p>
-                      <p>s/d 16.00</p>
+                      <p>11.00 WIB</p>
+                      <p>s/d selesai</p>
                     </div>
                   </div>
                 </div>
@@ -377,7 +373,7 @@ const IndexPage = ({ context }) => {
                     </div>
                     <div className="info">
                       <b style={{ marginBottom: '6px' }}>Alamat Acara</b>
-                      <p>Bintara Jaya Permai Blok C 121 RT 007/ RW 011, Bintara Jaya, Bekasi Barat 17136</p>
+                      <p>Br. Pasar, Desa Yehembang, Mendoyo, Jembrana</p>
                     </div>
                   </div>
                   <p className="view-location">VIEW LOCATION</p>
@@ -385,12 +381,7 @@ const IndexPage = ({ context }) => {
               </div>
 
               <div className="card-container">
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://calendar.google.com/event?action=TEMPLATE&tmeid=MXBxbmZlY2E1N2NmZXU5YjY5Z3UxZ24wbGogc2VnZXJhbWVuaWthaDRAbQ&tmsrc=segeramenikah4%40gmail.com"
-                  className="wrapper"
-                >
+                <a target="_blank" rel="noopener noreferrer" href="#" className="wrapper">
                   <div className="card-ts save-date">
                     <div className="info">
                       <b style={{ marginBottom: '6px' }}>Disimpan ya!</b>
@@ -467,7 +458,7 @@ const IndexPage = ({ context }) => {
           </div> */}
 
         {/* Wishes */}
-        <div className="sm-card">
+        {/* <div className="sm-card">
           <h6 className="wishes__title">Doa & Ucapan</h6>
 
           <p
@@ -577,51 +568,65 @@ const IndexPage = ({ context }) => {
               </button>
             </div>
           </div>
-        </div>
+        </div> */}
         {/* Wishes End */}
 
         {/* Gift */}
-        <div className="sm-card">
+        {/* <div className="sm-card">
           <h6 className="wishes__title">Hadiah</h6>
 
           <p>
-            Tanpa mengurangi rasa hormat, untuk melengkapi kebahagiaan pengantin, Anda dapat memberikan tanda kasih
-            dengan transfer ke rekening ke alamat berikut:
+            Tanpa mengurangi rasa hormat, untuk melengkapi kebahagiaan
+            pengantin, Anda dapat memberikan tanda kasih dengan transfer ke
+            rekening ke alamat berikut:
           </p>
 
           <div>
             <div
               style={{
-                backgroundColor: 'white',
-                borderRadius: '1rem',
-                padding: '.625rem .825rem',
-                borderRadius: '1rem',
-                color: 'black',
-                marginTop: '1rem',
+                backgroundColor: "white",
+                borderRadius: "1rem",
+                padding: ".625rem .825rem",
+                borderRadius: "1rem",
+                color: "black",
+                marginTop: "1rem",
               }}
             >
-              <div style={{ display: 'flex', marginBottom: '2rem', justifyContent: 'flex-end' }}>
-                <img style={{ width: '50%', maxWidth: '120px' }} src="/bca-logo.png" alt="bca" />
+              <div
+                style={{
+                  display: "flex",
+                  marginBottom: "2rem",
+                  justifyContent: "flex-end",
+                }}
+              >
+                <img
+                  style={{ width: "50%", maxWidth: "120px" }}
+                  src="/bca-logo.png"
+                  alt="bca"
+                />
               </div>
 
-              <div style={{ textAlign: 'left' }}>
-                <div style={{ display: 'flex' }}>
-                  <p style={{ color: 'black' }}>6785013909</p> {'-'}
-                  <p onClick={() => navigator.clipboard.writeText('6785013909')} style={{ color: 'purple' }}>
+              <div style={{ textAlign: "left" }}>
+                <div style={{ display: "flex" }}>
+                  <p style={{ color: "black" }}>6785013909</p> {"-"}
+                  <p
+                    onClick={() => navigator.clipboard.writeText("6785013909")}
+                    style={{ color: "purple" }}
+                  >
                     Copy
                   </p>
                 </div>
-                <p style={{ margin: '.525rem 0' }}>Kadek Wisnu Bhuana</p>
+                <p style={{ margin: ".525rem 0" }}>Kadek Wisnu Bhuana</p>
                 <button
                   style={{
-                    backgroundColor: '#333',
-                    border: 'none',
-                    color: 'white',
-                    width: '100%',
-                    padding: '.825rem 0',
-                    borderRadius: '1.25rem',
+                    backgroundColor: "#333",
+                    border: "none",
+                    color: "white",
+                    width: "100%",
+                    padding: ".825rem 0",
+                    borderRadius: "1.25rem",
                   }}
-                  onClick={() => QRMOdal('/bca.jpeg')}
+                  onClick={() => QRMOdal("/bca.jpeg")}
                 >
                   Buka QR Code
                 </button>
@@ -630,36 +635,46 @@ const IndexPage = ({ context }) => {
 
             <div
               style={{
-                backgroundColor: 'white',
-                borderRadius: '1rem',
-                padding: '.625rem .825rem',
-                borderRadius: '1rem',
-                color: 'black',
-                marginTop: '1rem',
+                backgroundColor: "white",
+                borderRadius: "1rem",
+                padding: ".625rem .825rem",
+                borderRadius: "1rem",
+                color: "black",
+                marginTop: "1rem",
               }}
             >
-              <div style={{ display: 'flex', marginBottom: '2rem', justifyContent: 'flex-end' }}>
-                <img style={{ width: '50%', maxWidth: '120px' }} src="/gopay-logo.png" alt="gopay" />
+              <div
+                style={{
+                  display: "flex",
+                  marginBottom: "2rem",
+                  justifyContent: "flex-end",
+                }}
+              >
+                <img
+                  style={{ width: "50%", maxWidth: "120px" }}
+                  src="/gopay-logo.png"
+                  alt="gopay"
+                />
               </div>
 
-              <div style={{ textAlign: 'left' }}>
-                <div style={{ display: 'flex' }}>
-                  <p style={{ color: 'black' }}>+6281382819007</p> {'-'}
-                  <p onClick={copyText} style={{ color: 'purple' }}>
+              <div style={{ textAlign: "left" }}>
+                <div style={{ display: "flex" }}>
+                  <p style={{ color: "black" }}>+6281382819007</p> {"-"}
+                  <p onClick={copyText} style={{ color: "purple" }}>
                     Copy
                   </p>
                 </div>
-                <p style={{ margin: '.525rem 0' }}>Kadek Wisnu Bhuana</p>
+                <p style={{ margin: ".525rem 0" }}>Kadek Wisnu Bhuana</p>
                 <button
                   style={{
-                    backgroundColor: '#333',
-                    border: 'none',
-                    color: 'white',
-                    width: '100%',
-                    padding: '.825rem 0',
-                    borderRadius: '1.25rem',
+                    backgroundColor: "#333",
+                    border: "none",
+                    color: "white",
+                    width: "100%",
+                    padding: ".825rem 0",
+                    borderRadius: "1.25rem",
                   }}
-                  onClick={() => QRMOdal('/gopay.jpeg')}
+                  onClick={() => QRMOdal("/gopay.jpeg")}
                 >
                   Buka QR Code
                 </button>
@@ -668,36 +683,46 @@ const IndexPage = ({ context }) => {
 
             <div
               style={{
-                backgroundColor: 'white',
-                borderRadius: '1rem',
-                padding: '.625rem .825rem',
-                borderRadius: '1rem',
-                color: 'black',
-                marginTop: '1rem',
+                backgroundColor: "white",
+                borderRadius: "1rem",
+                padding: ".625rem .825rem",
+                borderRadius: "1rem",
+                color: "black",
+                marginTop: "1rem",
               }}
             >
-              <div style={{ display: 'flex', marginBottom: '2rem', justifyContent: 'flex-end' }}>
-                <img style={{ width: '50%', maxWidth: '120px' }} src="/ovo-logo.png" alt="ovo" />
+              <div
+                style={{
+                  display: "flex",
+                  marginBottom: "2rem",
+                  justifyContent: "flex-end",
+                }}
+              >
+                <img
+                  style={{ width: "50%", maxWidth: "120px" }}
+                  src="/ovo-logo.png"
+                  alt="ovo"
+                />
               </div>
 
-              <div style={{ textAlign: 'left' }}>
-                <div style={{ display: 'flex' }}>
-                  <p style={{ color: 'black' }}>+6281382819007</p> {'-'}
-                  <p onClick={copyText} style={{ color: 'purple' }}>
+              <div style={{ textAlign: "left" }}>
+                <div style={{ display: "flex" }}>
+                  <p style={{ color: "black" }}>+6281382819007</p> {"-"}
+                  <p onClick={copyText} style={{ color: "purple" }}>
                     Copy
                   </p>
                 </div>
-                <p style={{ margin: '.525rem 0' }}>Kadek Wisnu Bhuana</p>
+                <p style={{ margin: ".525rem 0" }}>Kadek Wisnu Bhuana</p>
                 <button
                   style={{
-                    backgroundColor: '#333',
-                    border: 'none',
-                    color: 'white',
-                    width: '100%',
-                    padding: '.825rem 0',
-                    borderRadius: '1.25rem',
+                    backgroundColor: "#333",
+                    border: "none",
+                    color: "white",
+                    width: "100%",
+                    padding: ".825rem 0",
+                    borderRadius: "1.25rem",
                   }}
-                  onClick={() => QRMOdal('/ovo.jpeg')}
+                  onClick={() => QRMOdal("/ovo.jpeg")}
                 >
                   Buka QR Code
                 </button>
@@ -706,64 +731,76 @@ const IndexPage = ({ context }) => {
 
             <div
               style={{
-                backgroundColor: 'white',
-                borderRadius: '1rem',
-                padding: '.625rem .825rem',
-                borderRadius: '1rem',
-                color: 'black',
-                marginTop: '1rem',
+                backgroundColor: "white",
+                borderRadius: "1rem",
+                padding: ".625rem .825rem",
+                borderRadius: "1rem",
+                color: "black",
+                marginTop: "1rem",
               }}
             >
-              <div style={{ display: 'flex', marginBottom: '2rem', justifyContent: 'flex-end' }}>
-                <img style={{ width: '50%', maxWidth: '120px' }} src="/dana-logo.png" alt="dana" />
+              <div
+                style={{
+                  display: "flex",
+                  marginBottom: "2rem",
+                  justifyContent: "flex-end",
+                }}
+              >
+                <img
+                  style={{ width: "50%", maxWidth: "120px" }}
+                  src="/dana-logo.png"
+                  alt="dana"
+                />
               </div>
 
-              <div style={{ textAlign: 'left' }}>
-                <div style={{ display: 'flex' }}>
-                  <p style={{ color: 'black' }}>+6281382819007</p> {'-'}
-                  <p onClick={copyText} style={{ color: 'purple' }}>
+              <div style={{ textAlign: "left" }}>
+                <div style={{ display: "flex" }}>
+                  <p style={{ color: "black" }}>+6281382819007</p> {"-"}
+                  <p onClick={copyText} style={{ color: "purple" }}>
                     Copy
                   </p>
                 </div>
-                <p style={{ margin: '.525rem 0' }}>Kadek Wisnu Bhuana</p>
+                <p style={{ margin: ".525rem 0" }}>Kadek Wisnu Bhuana</p>
                 <button
                   style={{
-                    backgroundColor: '#333',
-                    border: 'none',
-                    color: 'white',
-                    width: '100%',
-                    padding: '.825rem 0',
-                    borderRadius: '1.25rem',
-                    marginBottom: '.425rem',
+                    backgroundColor: "#333",
+                    border: "none",
+                    color: "white",
+                    width: "100%",
+                    padding: ".825rem 0",
+                    borderRadius: "1.25rem",
+                    marginBottom: ".425rem",
                   }}
-                  onClick={() => QRMOdal('/dana.jpeg')}
+                  onClick={() => QRMOdal("/dana.jpeg")}
                 >
                   Buka QR Code
                 </button>
                 <button
                   style={{
-                    backgroundColor: '#333',
-                    border: 'none',
-                    color: 'white',
-                    width: '100%',
-                    padding: '.825rem 0',
-                    borderRadius: '1.25rem',
+                    backgroundColor: "#333",
+                    border: "none",
+                    color: "white",
+                    width: "100%",
+                    padding: ".825rem 0",
+                    borderRadius: "1.25rem",
                   }}
-                  onClick={() => router.replace('https://link.dana.id/qr/6na67h7')}
+                  onClick={() =>
+                    router.replace("https://link.dana.id/qr/6na67h7")
+                  }
                 >
                   Buka Link Dana
                 </button>
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
         {/* Gift Ends */}
 
         {/* Footer */}
         <div className="sm-card footer">
           <div className="footer-text">
             <p>Terima Kasih</p>
-            <h6>Wisnu & Intan</h6>
+            <h6>Surya & Dytha</h6>
           </div>
 
           <div className="credits">
