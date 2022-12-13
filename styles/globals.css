@@ -640,7 +640,7 @@ section#third-section {
   align-items: center;
   justify-content: center;
   text-align: center;
-  min-height: 145px;
+  min-height: 76px;
 }
 
 @media (min-width: 375px) {

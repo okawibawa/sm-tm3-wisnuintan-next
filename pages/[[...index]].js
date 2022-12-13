@@ -214,14 +214,11 @@ const IndexPage = ({ context }) => {
   return (
     <Layout>
       <Head>
-        <title>Pernikahan Surya & Dytha | Segera Menikah</title>
-        <meta
-          name="title"
-          content="Pernikahan Surya & Dytha | Segera Menikah"
-        />
+        <title>Pawiwahan Surya & Dytha | Segera Menikah</title>
+        <meta name="title" content="Pawiwahan Surya & Dytha | Segera Menikah" />
         <meta
           name="description"
-          content="Pernikahan Surya & Dytha, 21 Desember 2022."
+          content="Pawiwahan Surya & Dytha, 21 Desember 2022."
         />
 
         <meta property="og:type" content="website" />
@@ -231,11 +228,11 @@ const IndexPage = ({ context }) => {
         />
         <meta
           property="og:title"
-          content="Pernikahan Surya & Dytha | Segera Menikah"
+          content="Pawiwahan Surya & Dytha | Segera Menikah"
         />
         <meta
           property="og:description"
-          content="Pernikahan Surya & Dytha, 21 Desember 2022."
+          content="Pawiwahan Surya & Dytha, 21 Desember 2022."
         />
         <meta property="og:image" content="/5.jpg" />
 
@@ -246,11 +243,11 @@ const IndexPage = ({ context }) => {
         />
         <meta
           property="twitter:title"
-          content="Pernikahan Surya & Dytha | Segera Menikah"
+          content="Pawiwahan Surya & Dytha | Segera Menikah"
         />
         <meta
           property="twitter:description"
-          content="Pernikahan Surya & Dytha, 21 Desember 2022."
+          content="Pawiwahan Surya & Dytha, 21 Desember 2022."
         />
         <meta property="twitter:image" content="/5.jpg" />
       </Head>
@@ -266,7 +263,7 @@ const IndexPage = ({ context }) => {
         <div className="main">
           <div className="modal-container gradient">
             <div className="modal-titles">
-              <h1 className="modal-title shadow">Pernikahan</h1>
+              <h1 className="modal-title shadow">Pawiwahan</h1>
               <h2 className="modal-names shadow">Surya & Dytha</h2>
             </div>
 
@@ -352,7 +349,7 @@ const IndexPage = ({ context }) => {
                 data-sal-duration="1250"
                 data-sal-easing="ease"
               >
-                Pernikahan
+                Pawiwahan
               </h1>
               <h2
                 className="names shadow"
@@ -508,7 +505,7 @@ const IndexPage = ({ context }) => {
                   </div>
                   <div style={{ display: "flex", flexDirection: "column" }}>
                     <div className="info">
-                      <p>11.00 WIB</p>
+                      <p>11.00 WITA</p>
                       <p>s/d selesai</p>
                     </div>
                   </div>
@@ -534,7 +531,10 @@ const IndexPage = ({ context }) => {
                     </div>
                     <div className="info">
                       <b style={{ marginBottom: "6px" }}>Alamat Acara</b>
-                      <p>Br. Pasar, Desa Yehembang, Mendoyo, Jembrana</p>
+                      <p>
+                        Banjar Pasar, Desa Yehembang, Kecamatan Mendoyo,
+                        Kabupaten Jembrana
+                      </p>
                     </div>
                   </div>
                   <p className="view-location">VIEW LOCATION</p>
@@ -591,11 +591,8 @@ const IndexPage = ({ context }) => {
               data-sal-duration="1250"
               data-sal-easing="ease"
             >
-              Kami memohon maaf dan permaklumannya karena upacara ini hanya
-              dihadiri oleh keluarga dan kerabat dekat sehubungan dengan adanya
-              pandemi COVID-19 yang tidak memungkin mengadakan kegiatan yang
-              mengumpulkan orang banyak. Suatu kebahagian bagi kami apabila
-              Bapak/ Ibu/Saudara/i berkenan memberikan doa restu untuk kami.
+              Suatu kebahagian bagi kami apabila Bapak/ Ibu/Saudara/i berkenan
+              memberikan doa restu untuk kami.
               <br />
               <br />
               Atas doa restunya, kami ucapkan terimakasih.
@@ -609,16 +606,6 @@ const IndexPage = ({ context }) => {
             >
               <h6>Om Shanti Shanti Shanti Om</h6>
               <br />
-              <div style={{ width: "100%", height: "100%" }}>
-                <Image
-                  priority
-                  width={512}
-                  height={640}
-                  className="covid"
-                  src="/cov.png"
-                  alt="Covid"
-                />
-              </div>
             </div>
           </div>
         </div>
