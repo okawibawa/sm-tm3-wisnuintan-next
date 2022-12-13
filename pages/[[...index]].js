@@ -1,31 +1,42 @@
-import React, { useEffect, useState } from 'react';
-import Head from 'next/head';
-import Image from 'next/image';
-import Modal from 'react-modal';
-import ReactPlayer from 'react-player';
-import ModalImage from 'react-modal-image';
-import sal from 'sal.js';
-import Router, { useRouter } from 'next/router';
-import '../node_modules/sal.js/dist/sal.css';
-import { supabase } from '../utils/supabaseClient';
-import Swal from 'sweetalert2';
+import React, { useEffect, useState } from "react";
+import Head from "next/head";
+import Image from "next/image";
+import Modal from "react-modal";
+import ReactPlayer from "react-player";
+import ModalImage from "react-modal-image";
+import sal from "sal.js";
+import Router, { useRouter } from "next/router";
+import "../node_modules/sal.js/dist/sal.css";
+import { supabase } from "../utils/supabaseClient";
+import Swal from "sweetalert2";
 
 // 1 2 3 4 7 10 11 12 13 14 16 18
-import imgOne from '../public/1.jpg';
-import imgTwo from '../public/2.jpg';
-import imgThree from '../public/3.jpg';
-import imgFour from '../public/4.jpg';
-import imgFive from '/public/5.jpg';
-import imgSix from '/public/6.jpg';
-import imgSeven from '/public/7.jpg';
-import imgEight from '/public/8.jpg';
-import imgNine from '/public/9.jpg';
-import imgTen from '/public/10.jpg';
+import imgOne from "../public/1.jpg";
+import imgTwo from "../public/2.jpg";
+import imgThree from "../public/3.jpg";
+import imgFour from "../public/4.jpg";
+import imgFive from "/public/5.jpg";
+import imgSix from "/public/6.jpg";
+import imgSeven from "/public/7.jpg";
+import imgEight from "/public/8.jpg";
+import imgNine from "/public/9.jpg";
+import imgTen from "/public/10.jpg";
 
-const IMAGES = [imgTen, imgNine, imgSeven, imgFive, imgSix, imgOne, imgFour, imgTwo, imgThree, imgEight];
+const IMAGES = [
+  imgTen,
+  imgNine,
+  imgSeven,
+  imgFive,
+  imgSix,
+  imgOne,
+  imgFour,
+  imgTwo,
+  imgThree,
+  imgEight,
+];
 
 // components
-import Layout from '../components/Layout';
+import Layout from "../components/Layout";
 
 const IndexPage = ({ context }) => {
   const router = useRouter();
@@ -34,11 +45,11 @@ const IndexPage = ({ context }) => {
   const [isPlaying, setIsPlaying] = React.useState(false);
   const [isVideoPlaying, setIsVideoPlaying] = React.useState(false);
 
-  const [name, setName] = React.useState('');
-  const [hour, setHour] = React.useState('11');
-  const [minutes, setMinutes] = React.useState('00');
-  const [hourEnd, setHourEnd] = React.useState('');
-  const [minutesEnd, setMinutesEnd] = React.useState('');
+  const [name, setName] = React.useState("");
+  const [hour, setHour] = React.useState("11");
+  const [minutes, setMinutes] = React.useState("00");
+  const [hourEnd, setHourEnd] = React.useState("");
+  const [minutesEnd, setMinutesEnd] = React.useState("");
 
   const [secondOne, setSecondOne] = React.useState(0);
   const [minuteOne, setMinuteOne] = React.useState(0);
@@ -54,21 +65,21 @@ const IndexPage = ({ context }) => {
   const [data, setData] = React.useState([]);
 
   const [newComment, setNewComment] = React.useState([]);
-  const [from, setFrom] = React.useState('');
-  const [text, setText] = React.useState('');
+  const [from, setFrom] = React.useState("");
+  const [text, setText] = React.useState("");
   const [bool1, setBool1] = React.useState(false);
   const [bool2, setBool2] = React.useState(false);
 
   sal();
 
   useEffect(() => {
-    const path = router.asPath.split('/');
+    const path = router.asPath.split("/");
 
     if (path.length > 0) {
-      if (path[1] == '[...index]') {
-        setName('');
+      if (path[1] == "[...index]") {
+        setName("");
       } else {
-        const name = path[1].replace(/-/g, ' ');
+        const name = path[1].replace(/-/g, " ");
 
         setName(name);
       }
@@ -79,11 +90,14 @@ const IndexPage = ({ context }) => {
     setIsLoading(true);
 
     const fetchMessages = async () => {
-      const { data, error, status } = await supabase.from('messages').select('*').order('id', { ascending: false });
+      const { data, error, status } = await supabase
+        .from("messages")
+        .select("*")
+        .order("id", { ascending: false });
 
       const subscribe = await supabase
-        .from('messages')
-        .on('*', (payload) => {
+        .from("messages")
+        .on("*", (payload) => {
           setNewComment(payload.new);
         })
         .subscribe();
@@ -96,7 +110,9 @@ const IndexPage = ({ context }) => {
   }, [newComment]);
 
   // Count time 2
-  let countDownDate2 = new Date(`December 21, 2022 ${hour}:${minutes}:00`).getTime();
+  let countDownDate2 = new Date(
+    `December 21, 2022 ${hour}:${minutes}:00`
+  ).getTime();
 
   const updateCountDownDate2 = setInterval(function () {
     let newDate2 = new Date().getTime();
@@ -104,7 +120,9 @@ const IndexPage = ({ context }) => {
     let distance2 = countDownDate2 - newDate2;
 
     var days2 = Math.floor(distance2 / (1000 * 60 * 60 * 24));
-    var hours2 = Math.floor((distance2 % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var hours2 = Math.floor(
+      (distance2 % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
     var minutes2 = Math.floor((distance2 % (1000 * 60 * 60)) / (1000 * 60));
     var seconds2 = Math.floor((distance2 % (1000 * 60)) / 1000);
 
@@ -141,22 +159,26 @@ const IndexPage = ({ context }) => {
 
   const modals = async () => {
     if (!from || !text) {
-      Swal.fire('Perhatian!', 'Tolong isi nama dan ucapan dengan lengkap!', 'warning');
+      Swal.fire(
+        "Perhatian!",
+        "Tolong isi nama dan ucapan dengan lengkap!",
+        "warning"
+      );
     } else {
       Swal.fire({
-        title: 'Perhatian!',
-        text: 'Anda yakin ingin mengirim ucapan ini? Ucapan tidak akan bisa dihapus!',
-        icon: 'warning',
+        title: "Perhatian!",
+        text: "Anda yakin ingin mengirim ucapan ini? Ucapan tidak akan bisa dihapus!",
+        icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Ya, kirim!',
-        cancelButtonText: 'Tidak!',
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Ya, kirim!",
+        cancelButtonText: "Tidak!",
         showLoaderOnConfirm: true,
         preConfirm: async () => {
-          const { data, error } = await supabase.from('messages').insert([
+          const { data, error } = await supabase.from("messages").insert([
             {
-              slug: 'wisnu-intan-22',
+              slug: "wisnu-intan-22",
               from: from,
               text: text,
               attend_1: bool1,
@@ -164,8 +186,8 @@ const IndexPage = ({ context }) => {
             },
           ]);
 
-          setFrom('');
-          setText('');
+          setFrom("");
+          setText("");
           setBool1(false);
           setBool2(false);
 
@@ -173,7 +195,7 @@ const IndexPage = ({ context }) => {
         },
       }).then((result) => {
         if (result.isConfirmed) {
-          Swal.fire('Sukses!', 'Ucapan telah dikirim!', 'success');
+          Swal.fire("Sukses!", "Ucapan telah dikirim!", "success");
         }
       });
     }
@@ -181,31 +203,55 @@ const IndexPage = ({ context }) => {
 
   const QRMOdal = (src) => {
     Swal.fire({
-      text: 'Halo, terima kasih ya 💞',
+      text: "Halo, terima kasih ya 💞",
       imageUrl: src,
       imageWidth: 160,
     });
   };
 
-  const copyText = () => navigator.clipboard.writeText('081382819007');
+  const copyText = () => navigator.clipboard.writeText("081382819007");
 
   return (
     <Layout>
       <Head>
         <title>Pernikahan Surya & Dytha | Segera Menikah</title>
-        <meta name="title" content="Pernikahan Surya & Dytha | Segera Menikah" />
-        <meta name="description" content="Pernikahan Surya & Dytha, 21 Desember 2022." />
+        <meta
+          name="title"
+          content="Pernikahan Surya & Dytha | Segera Menikah"
+        />
+        <meta
+          name="description"
+          content="Pernikahan Surya & Dytha, 21 Desember 2022."
+        />
 
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://wisnu.intan.segeramenikah.com" />
-        <meta property="og:title" content="Pernikahan Surya & Dytha | Segera Menikah" />
-        <meta property="og:description" content="Pernikahan Surya & Dytha, 21 Desember 2022." />
+        <meta
+          property="og:url"
+          content="https://wisnu.intan.segeramenikah.com"
+        />
+        <meta
+          property="og:title"
+          content="Pernikahan Surya & Dytha | Segera Menikah"
+        />
+        <meta
+          property="og:description"
+          content="Pernikahan Surya & Dytha, 21 Desember 2022."
+        />
         <meta property="og:image" content="/5.jpg" />
 
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://wisnu.intan.segeramenikah.com" />
-        <meta property="twitter:title" content="Pernikahan Surya & Dytha | Segera Menikah" />
-        <meta property="twitter:description" content="Pernikahan Surya & Dytha, 21 Desember 2022." />
+        <meta
+          property="twitter:url"
+          content="https://wisnu.intan.segeramenikah.com"
+        />
+        <meta
+          property="twitter:title"
+          content="Pernikahan Surya & Dytha | Segera Menikah"
+        />
+        <meta
+          property="twitter:description"
+          content="Pernikahan Surya & Dytha, 21 Desember 2022."
+        />
         <meta property="twitter:image" content="/5.jpg" />
       </Head>
 
@@ -227,7 +273,13 @@ const IndexPage = ({ context }) => {
             <div className="modal-details">
               <div className="modal-card date">
                 <div className="modal-icon">
-                  <Image priority width={24} height={24} src="/calendar.svg" alt="Calendar" />
+                  <Image
+                    priority
+                    width={24}
+                    height={24}
+                    src="/calendar.svg"
+                    alt="Calendar"
+                  />
                 </div>
                 <div className="modal-info">
                   <p>Rabu,</p>
@@ -238,7 +290,13 @@ const IndexPage = ({ context }) => {
               {name && (
                 <div className="modal-card person">
                   <div className="modal-icon">
-                    <Image priority width={24} height={24} src="/person.svg" alt="Person" />
+                    <Image
+                      priority
+                      width={24}
+                      height={24}
+                      src="/person.svg"
+                      alt="Person"
+                    />
                   </div>
                   <div className="modal-info">
                     <p>Kepada Yth.</p>
@@ -248,7 +306,11 @@ const IndexPage = ({ context }) => {
               )}
 
               <div className="modal-cta-container">
-                <button id="btnCta" className="modal-btn-invite" onClick={() => handleCloseModal()}>
+                <button
+                  id="btnCta"
+                  className="modal-btn-invite"
+                  onClick={() => handleCloseModal()}
+                >
                   Open Invitation
                 </button>
               </div>
@@ -259,25 +321,45 @@ const IndexPage = ({ context }) => {
 
       <main style={{ opacity: shoDisplay }}>
         <ReactPlayer
-          style={{ display: 'none' }}
+          style={{ display: "none" }}
           playing={isPlaying}
           loop={true}
           // url="https://soundcloud.com/carlomedinaii/angels-brought-me-here"
           url="/soundtrack.mp3"
         />
 
-        <div onClick={playAudio} className="volume-ic-container" id="audio-container">
-          <Image priority width={28} height={28} src={isPlaying ? '/volume.svg' : '/muted.svg'} alt="Volume" />
+        <div
+          onClick={playAudio}
+          className="volume-ic-container"
+          id="audio-container"
+        >
+          <Image
+            priority
+            width={28}
+            height={28}
+            src={isPlaying ? "/volume.svg" : "/muted.svg"}
+            alt="Volume"
+          />
         </div>
 
         {/* First Section */}
         <section id="main-section">
           <div className="main-gradient">
             <div className="titles">
-              <h1 className="main-title shadow" data-sal="slide-up" data-sal-duration="1250" data-sal-easing="ease">
+              <h1
+                className="main-title shadow"
+                data-sal="slide-up"
+                data-sal-duration="1250"
+                data-sal-easing="ease"
+              >
                 Pernikahan
               </h1>
-              <h2 className="names shadow" data-sal="slide-up" data-sal-duration="1250" data-sal-easing="ease">
+              <h2
+                className="names shadow"
+                data-sal="slide-up"
+                data-sal-duration="1250"
+                data-sal-easing="ease"
+              >
                 Surya & Dytha
               </h2>
             </div>
@@ -286,14 +368,23 @@ const IndexPage = ({ context }) => {
 
         {/* Veda */}
         <div className="sm-card veda">
-          <p data-sal="slide-up" data-sal-duration="1250" data-sal-easing="ease">
-            Ya Tuhanku Yang Maha Pengasih, anugrahkanlah kepada pasangan ini senantiasa kebahagiaan, kesehatan, tetap
-            bersatu dan tidak pernah terpisahkan, panjang umur dan tinggal di rumah yang penuh kegembiraan bersama
-            seluruh keturunannya.
+          <p
+            data-sal="slide-up"
+            data-sal-duration="1250"
+            data-sal-easing="ease"
+          >
+            Ya Tuhanku Yang Maha Pengasih, anugrahkanlah kepada pasangan ini
+            senantiasa kebahagiaan, kesehatan, tetap bersatu dan tidak pernah
+            terpisahkan, panjang umur dan tinggal di rumah yang penuh
+            kegembiraan bersama seluruh keturunannya.
           </p>
 
           <div className="arts">
-            <h6 data-sal="slide-up" data-sal-duration="1250" data-sal-easing="ease">
+            <h6
+              data-sal="slide-up"
+              data-sal-duration="1250"
+              data-sal-easing="ease"
+            >
               Rg. Veda X.85.42.
             </h6>
           </div>
@@ -301,24 +392,59 @@ const IndexPage = ({ context }) => {
 
         {/* Second Section */}
         <section id="second-section">
-          <div className="second-container" data-sal="slide-up" data-sal-duration="1250" data-sal-easing="ease">
-            <h1 className="ss-main-title">Sang Mempelai</h1>
+          <div
+            className="second-container"
+            data-sal="slide-up"
+            data-sal-duration="1250"
+            data-sal-easing="ease"
+          >
+            <h1 className="ss-main-title">Sang Mempelai Pria</h1>
 
             <div className="cards-container">
-              <div className="card" data-sal="slide-up" data-sal-duration="1250" data-sal-easing="ease">
+              <div
+                className="card"
+                data-sal="slide-up"
+                data-sal-duration="1250"
+                data-sal-easing="ease"
+              >
                 <h1>Bripda Gusti Putu Surya Saputra</h1>
                 <p>
-                  Putra pertama dari pasangan<br></br> AKP I Gusti Putu Suarka & Sayu Ketut Suryatini
+                  Putra pertama dari pasangan<br></br> AKP I Gusti Putu Suarka &
+                  Sayu Ketut Suryatini
                 </p>
-                <p style={{ fontSize: '10px' }}>Br. Pasar, Desa Yehembang, Mendoyo, Jembrana</p>
+                <p style={{ fontSize: "10px" }}>
+                  Br. Pasar, Desa Yehembang, Mendoyo, Jembrana
+                </p>
               </div>
+            </div>
+          </div>
+        </section>
 
-              <div className="card" data-sal="slide-up" data-sal-duration="1250" data-sal-easing="ease">
+        {/* Second Section */}
+        <section id="second-section-second">
+          <div
+            className="second-container"
+            data-sal="slide-up"
+            data-sal-duration="1250"
+            data-sal-easing="ease"
+          >
+            <h1 className="ss-main-title">Sang Mempelai Wanita</h1>
+
+            <div className="cards-container">
+              <div
+                className="card"
+                data-sal="slide-up"
+                data-sal-duration="1250"
+                data-sal-easing="ease"
+              >
                 <h1>Bripda Desak Ayu Dytha Damayanthi</h1>
                 <p>
-                  Putri pertama dari pasangan<br></br> Iptu I Dewa Made Arnawa, S.H. & Ipda Ni Luh Gede Rastini, S.H.
+                  Putri pertama dari pasangan<br></br> Iptu I Dewa Made Arnawa,
+                  S.H. & Ipda Ni Luh Gede Rastini, S.H.
                 </p>
-                <p style={{ fontSize: '10px' }}>Jln. Sekar Sari Gang 1 No.12A Denpasar</p>
+                <p style={{ fontSize: "10px" }}>
+                  Jln. Sekar Sari Gang 1 No.12A Denpasar
+                </p>
               </div>
             </div>
           </div>
@@ -328,16 +454,39 @@ const IndexPage = ({ context }) => {
         <section id="fourth-section">
           {/* <div className="title-gradient"></div> */}
           <div className="fourth-container">
-            <div className="th-title" data-sal="slide-up" data-sal-duration="1250" data-sal-easing="ease">
+            <div
+              className="th-title"
+              data-sal="slide-up"
+              data-sal-duration="1250"
+              data-sal-easing="ease"
+            >
               {/* <h1 style={{ zIndex: 9999 }}>Resepsi</h1> */}
-              <Image priority width={64} height={64} src="/gate.svg" alt="Wedding Gate" style={{ zIndex: 99999999 }} />
+              <Image
+                priority
+                width={64}
+                height={64}
+                src="/gate.svg"
+                alt="Wedding Gate"
+                style={{ zIndex: 99999999 }}
+              />
             </div>
 
-            <div className="details" data-sal="slide-up" data-sal-duration="1250" data-sal-easing="ease">
+            <div
+              className="details"
+              data-sal="slide-up"
+              data-sal-duration="1250"
+              data-sal-easing="ease"
+            >
               <div className="card-container">
                 <div className="card-ts date">
                   <div className="icon">
-                    <Image priority width={20} height={20} src="/calendar.svg" alt="Calendar" />
+                    <Image
+                      priority
+                      width={20}
+                      height={20}
+                      src="/calendar.svg"
+                      alt="Calendar"
+                    />
                   </div>
                   <div className="info">
                     <p>Rabu,</p>
@@ -349,9 +498,15 @@ const IndexPage = ({ context }) => {
               <div className="card-container">
                 <div className="card-ts time">
                   <div className="icon">
-                    <Image priority width={28} height={28} src="/person.svg" alt="Person" />
+                    <Image
+                      priority
+                      width={28}
+                      height={28}
+                      src="/person.svg"
+                      alt="Person"
+                    />
                   </div>
-                  <div style={{ display: 'flex', flexDirection: 'column' }}>
+                  <div style={{ display: "flex", flexDirection: "column" }}>
                     <div className="info">
                       <p>11.00 WIB</p>
                       <p>s/d selesai</p>
@@ -369,10 +524,16 @@ const IndexPage = ({ context }) => {
                 >
                   <div className="card-ts location">
                     <div className="icon">
-                      <Image priority width={20} height={20} src="/calendar.svg" alt="Calendar" />
+                      <Image
+                        priority
+                        width={20}
+                        height={20}
+                        src="/calendar.svg"
+                        alt="Calendar"
+                      />
                     </div>
                     <div className="info">
-                      <b style={{ marginBottom: '6px' }}>Alamat Acara</b>
+                      <b style={{ marginBottom: "6px" }}>Alamat Acara</b>
                       <p>Br. Pasar, Desa Yehembang, Mendoyo, Jembrana</p>
                     </div>
                   </div>
@@ -381,10 +542,15 @@ const IndexPage = ({ context }) => {
               </div>
 
               <div className="card-container">
-                <a target="_blank" rel="noopener noreferrer" href="#" className="wrapper">
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="#"
+                  className="wrapper"
+                >
                   <div className="card-ts save-date">
                     <div className="info">
-                      <b style={{ marginBottom: '6px' }}>Disimpan ya!</b>
+                      <b style={{ marginBottom: "6px" }}>Disimpan ya!</b>
                       <p className="infoSmDesc">Klik untuk menyimpan acara</p>
                     </div>
 
@@ -420,20 +586,38 @@ const IndexPage = ({ context }) => {
         {/* Closing Santhi */}
         <div className="sm-card closing">
           <div className="arts-container">
-            <p data-sal="slide-up" data-sal-duration="1250" data-sal-easing="ease">
-              Kami memohon maaf dan permaklumannya karena upacara ini hanya dihadiri oleh keluarga dan kerabat dekat
-              sehubungan dengan adanya pandemi COVID-19 yang tidak memungkin mengadakan kegiatan yang mengumpulkan orang
-              banyak. Suatu kebahagian bagi kami apabila Bapak/ Ibu/Saudara/i berkenan memberikan doa restu untuk kami.
+            <p
+              data-sal="slide-up"
+              data-sal-duration="1250"
+              data-sal-easing="ease"
+            >
+              Kami memohon maaf dan permaklumannya karena upacara ini hanya
+              dihadiri oleh keluarga dan kerabat dekat sehubungan dengan adanya
+              pandemi COVID-19 yang tidak memungkin mengadakan kegiatan yang
+              mengumpulkan orang banyak. Suatu kebahagian bagi kami apabila
+              Bapak/ Ibu/Saudara/i berkenan memberikan doa restu untuk kami.
               <br />
               <br />
               Atas doa restunya, kami ucapkan terimakasih.
             </p>
 
-            <div className="title" data-sal="slide-up" data-sal-duration="1250" data-sal-easing="ease">
+            <div
+              className="title"
+              data-sal="slide-up"
+              data-sal-duration="1250"
+              data-sal-easing="ease"
+            >
               <h6>Om Shanti Shanti Shanti Om</h6>
               <br />
-              <div style={{ width: '100%', height: '100%' }}>
-                <Image priority width={512} height={640} className="covid" src="/cov.png" alt="Covid" />
+              <div style={{ width: "100%", height: "100%" }}>
+                <Image
+                  priority
+                  width={512}
+                  height={640}
+                  className="covid"
+                  src="/cov.png"
+                  alt="Covid"
+                />
               </div>
             </div>
           </div>
@@ -442,8 +626,17 @@ const IndexPage = ({ context }) => {
         {/* Images Gallery */}
         <div className="gallery-container">
           {IMAGES.map((img, index) => (
-            <div key={index} data-sal="slide-up" data-sal-duration="900" className="img-container">
-              <ModalImage small={`/${index + 1}.jpg`} large={`/${index + 1}.jpg`} loading="lazy" />
+            <div
+              key={index}
+              data-sal="slide-up"
+              data-sal-duration="900"
+              className="img-container"
+            >
+              <ModalImage
+                small={`/${index + 1}.jpg`}
+                large={`/${index + 1}.jpg`}
+                loading="lazy"
+              />
             </div>
           ))}
         </div>
@@ -805,22 +998,45 @@ const IndexPage = ({ context }) => {
 
           <div className="credits">
             <div className="cr-text">
-              <a href="https://segeramenikah.com/" className="footer-link" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://segeramenikah.com/"
+                className="footer-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 &#9400; Copyright | Segera Menikah
               </a>
             </div>
 
             <div className="contacts">
               <a href="https://wa.me/626285157722353?text=Halo%20Segera%20Menikah.">
-                <Image priority width={64} height={64} src="/whatsapp.svg" alt="Whatsapp" />
+                <Image
+                  priority
+                  width={64}
+                  height={64}
+                  src="/whatsapp.svg"
+                  alt="Whatsapp"
+                />
               </a>
 
               <a href="https://www.instagram.com/segera_menikah/">
-                <Image priority width={64} height={64} src="/instagram.svg" alt="Instagram" />
+                <Image
+                  priority
+                  width={64}
+                  height={64}
+                  src="/instagram.svg"
+                  alt="Instagram"
+                />
               </a>
 
               <a className="ic-last" href="#">
-                <Image priority width={64} height={64} src="/instagram.svg" alt="Instagram" />
+                <Image
+                  priority
+                  width={64}
+                  height={64}
+                  src="/instagram.svg"
+                  alt="Instagram"
+                />
               </a>
             </div>
           </div>
