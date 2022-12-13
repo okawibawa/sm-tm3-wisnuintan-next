@@ -395,7 +395,9 @@ const IndexPage = ({ context }) => {
             data-sal-duration="1250"
             data-sal-easing="ease"
           >
-            {/* <h1 className="ss-main-title">Sang Mempelai Pria</h1> */}
+            <h1 className="ss-main-title" style={{ color: "transparent" }}>
+              Sang Mempelai Pria
+            </h1>
 
             <div className="cards-container">
               <div
@@ -425,7 +427,9 @@ const IndexPage = ({ context }) => {
             data-sal-duration="1250"
             data-sal-easing="ease"
           >
-            {/* <h1 className="ss-main-title">Sang Mempelai Wanita</h1> */}
+            <h1 className="ss-main-title" style={{ color: "transparent" }}>
+              Sang Mempelai Wanita
+            </h1>
 
             <div className="cards-container">
               <div
