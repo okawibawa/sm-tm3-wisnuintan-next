@@ -22,18 +22,7 @@ import imgEight from "/public/8.jpg";
 import imgNine from "/public/9.jpg";
 import imgTen from "/public/10.jpg";
 
-const IMAGES = [
-  imgTen,
-  imgNine,
-  imgSeven,
-  imgFive,
-  imgSix,
-  imgOne,
-  imgFour,
-  imgTwo,
-  imgThree,
-  imgEight,
-];
+const IMAGES = [null];
 
 // components
 import Layout from "../components/Layout";
@@ -613,7 +602,7 @@ const IndexPage = ({ context }) => {
 
         {/* Images Gallery */}
         <div className="gallery-container">
-          {IMAGES.map((img, index) => (
+          {new Array(11).fill(null).map((img, index) => (
             <div
               key={index}
               data-sal="slide-up"
