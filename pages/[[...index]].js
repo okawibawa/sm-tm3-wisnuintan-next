@@ -395,7 +395,7 @@ const IndexPage = ({ context }) => {
             data-sal-duration="1250"
             data-sal-easing="ease"
           >
-            <h1 className="ss-main-title">Sang Mempelai Pria</h1>
+            {/* <h1 className="ss-main-title">Sang Mempelai Pria</h1> */}
 
             <div className="cards-container">
               <div
@@ -425,7 +425,7 @@ const IndexPage = ({ context }) => {
             data-sal-duration="1250"
             data-sal-easing="ease"
           >
-            <h1 className="ss-main-title">Sang Mempelai Wanita</h1>
+            {/* <h1 className="ss-main-title">Sang Mempelai Wanita</h1> */}
 
             <div className="cards-container">
               <div
@@ -514,7 +514,7 @@ const IndexPage = ({ context }) => {
 
               <div className="card-container">
                 <a
-                  href="https://goo.gl/maps/V6wVTcBQs9vbm7a98"
+                  href="https://maps.app.goo.gl/h1bEHmZ8cEuJkrFb6?g_st=iw"
                   className="wrapper"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -531,10 +531,7 @@ const IndexPage = ({ context }) => {
                     </div>
                     <div className="info">
                       <b style={{ marginBottom: "6px" }}>Alamat Acara</b>
-                      <p>
-                        Banjar Pasar, Desa Yehembang, Kecamatan Mendoyo,
-                        Kabupaten Jembrana
-                      </p>
+                      <p>UD RAMA DIGITAL Toko Alat Tulis dan Percetakan</p>
                     </div>
                   </div>
                   <p className="view-location">VIEW LOCATION</p>
