@@ -602,7 +602,7 @@ const IndexPage = ({ context }) => {
 
         {/* Images Gallery */}
         <div className="gallery-container">
-          {new Array(11).fill(null).map((img, index) => (
+          {new Array(10).fill(null).map((img, index) => (
             <div
               key={index}
               data-sal="slide-up"
